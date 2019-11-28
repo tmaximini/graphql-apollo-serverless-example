@@ -1,7 +1,8 @@
 {
-  "name": "dropp-graphql",
+  "name": "graphql-apollo-serverless",
   "version": "1.0.0",
   "main": "index.js",
+  "author": "Thomas Maximini <tmaximini@gmail.com>",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon index.js"
