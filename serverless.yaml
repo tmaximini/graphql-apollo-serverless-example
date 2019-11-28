@@ -1,0 +1,23 @@
+org: tmaximini
+app: apollo-lambda-app
+# serverless.yml
+
+service: apollo-lambda
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  graphql:
+    # this is formatted as <FILENAME>.<HANDLER>
+    handler: index.graphqlHandler
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+          integration: lambda-proxy
+      - http:
+          path: graphql
+          method: get
+          cors: true
+          integration: lambda-proxy
