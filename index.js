@@ -9,5 +9,5 @@ exports.graphqlHandler = server.createHandler({
     origin: "*",
     credentials: false
   },
-  endpointURL: "/dev/graphql"
+  endpointURL: "/graphql"
 });

@@ -1,7 +1,7 @@
 # serverless graphql server
 
-Powered by [Apollo Server Lambda](https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-lambda)
-See https://www.apollographql.com/docs/apollo-server/deployment/lambda/ for docs
+Powered by [Apollo Server Lambda](https://github.com/apollographql/apollo-server/tree/master/packages/apollo-server-lambda) -
+Check [the docs here](https://www.apollographql.com/docs/apollo-server/deployment/lambda/)
 
 ## Installation
 
@@ -22,7 +22,7 @@ run `sls deploy`
 
 ## dev endpoint
 
-https://7nilhhyhq2.execute-api.us-east-1.amazonaws.com/dev/graphql
+https://8opijf1i72.execute-api.eu-central-1.amazonaws.com/dev/graphql
 
 example query:
 
