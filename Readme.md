@@ -7,18 +7,24 @@ Check [the docs here](https://www.apollographql.com/docs/apollo-server/deploymen
 
 run `npm install` or `yarn`
 
-install [serverless](https://serverless.com/):
-`npm i -g serverless`
-
 ## npm scripts
 
 `npm run dev`: start graphiql dev server
 
 ## deployment
 
+### via serverless
+
+install [serverless](https://serverless.com/):
+`npm i -g serverless`
+
 run `sls deploy`
 
+### via aws-cli
+
 (make sure you have your [aws-cli](https://aws.amazon.com/de/cli/) setup and configured)
+
+run `./deploy.sh`
 
 ## dev endpoint
 
