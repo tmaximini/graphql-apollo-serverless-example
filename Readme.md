@@ -7,7 +7,7 @@ See https://www.apollographql.com/docs/apollo-server/deployment/lambda/ for docs
 
 run `npm install` or `yarn`
 
-install [serverless](https://serverless.com/)
+install [serverless](https://serverless.com/):
 `npm i -g serverless`
 
 ## npm scripts
@@ -19,3 +19,28 @@ install [serverless](https://serverless.com/)
 run `sls deploy`
 
 (make sure you have your [aws-cli](https://aws.amazon.com/de/cli/) setup and configured)
+
+## dev endpoint
+
+https://7nilhhyhq2.execute-api.us-east-1.amazonaws.com/dev/graphql
+
+example query:
+
+```graphql
+{
+  product(id: "abc") {
+    image {
+      source
+    }
+    name
+    price {
+      amount
+      currency
+    }
+    stockItems {
+      quantity
+      size
+    }
+  }
+}
+```
