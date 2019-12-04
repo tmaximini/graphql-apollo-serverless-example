@@ -7,9 +7,9 @@ const transformArticle = item => {
     slug: item.Slug,
     price: item.Price,
     price_rrp: item.Price_rrp,
-    description: Array.isArray(item.Tranlations)
-      ? item.Tranlations[0]
-      : item.Tranlations || "no description yet"
+    description: Array.isArray(item.Translations)
+      ? item.Translations[0]
+      : item.Translations || "no description yet"
   };
 };
 
