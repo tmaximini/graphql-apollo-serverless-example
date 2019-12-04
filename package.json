@@ -10,6 +10,9 @@
   "dependencies": {
     "apollo-server": "^2.9.12",
     "apollo-server-lambda": "^2.9.12",
+    "aws-sdk": "^2.584.0",
+    "console-pretty-print": "^1.0.4",
+    "dotenv": "^8.2.0",
     "graphql": "^14.5.8",
     "isomorphic-fetch": "^2.2.1",
     "sequelize": "^5.21.2"

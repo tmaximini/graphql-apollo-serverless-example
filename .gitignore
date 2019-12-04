@@ -1,6 +1,3 @@
-node_modules
-.deploy
-.serverless
-
+node_modules/
 yarn.lock
-package-lock.json
+.env

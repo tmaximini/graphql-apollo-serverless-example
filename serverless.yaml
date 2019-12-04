@@ -7,6 +7,14 @@ provider:
   name: aws
   runtime: nodejs10.x
   region: eu-central-1
+iamRoleStatements:
+  Effect: "Allow"
+  Action:
+    - "dynamodb:GetItem"
+    - "dynamodb:PutItem"
+    - "dynamodb:Scan"
+    # - "dynamodb:DeleteItem"
+  Resource: "arn:aws:dynamodb:eu-central-1:099822205767:table/Articles"
 functions:
   graphql:
     # this is formatted as <FILENAME>.<HANDLER>

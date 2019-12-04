@@ -1,5 +1,7 @@
 const { gql } = require("apollo-server-lambda");
 
+const { getArticleById, getArticleBySlug } = require("./resolvers/article");
+
 const typeDefs = gql`
   type Image {
     source: String # Url scalar
@@ -27,11 +29,13 @@ const typeDefs = gql`
   type Product @cacheControl(maxAge: 300) {
     id: ID!
     name: String
-    description(format: String, locale: String): String
-    image: Image
+    description: String
+    imageUrl: String
     brand: String
-    price(currency: String): Price
-    stockItems: [StockItem!]!
+    price: Float
+    price_rrp: Float
+    slug: String
+    # stockItems: [StockItem!]!
   }
 
   type Query {
@@ -40,7 +44,16 @@ const typeDefs = gql`
   }
 `;
 
-const resolvers = {};
+const resolvers = {
+  Query: {
+    product(obj, args, context, info) {
+      return getArticleById(args.id);
+    },
+    productBySlug(obj, args, context, info) {
+      return getArticleBySlug(args.slug);
+    }
+  }
+};
 
 const mocks = {
   StockItem: () => ({
@@ -52,9 +65,6 @@ const mocks = {
     amount: 1230,
     currency: "EUR"
   }),
-  Product: () => ({
-    name: "Nike Air Vapormax SuperFly Dope"
-  }),
   Image: () => ({
     source:
       "https://www.11teamsports.com/at-de/Data/Images/Big/nike-air-vapormax-flyknit-3-weiss-f102-aj6900.jpg"
@@ -65,7 +75,7 @@ module.exports = {
   typeDefs,
   resolvers,
   mocks,
-  mockEntireSchema: true,
+  mockEntireSchema: false,
   context: ({ event, context }) => ({
     headers: event.headers,
     functionName: context.functionName,
