@@ -33,10 +33,10 @@ const typeDefs = gql`
     descriptionShort: String
     imageUrl: String
     brand: String
-    price: Float
-    price_rrp: Float
+    price: Price
+    price_rrp: Price
     slug: String
-    # stockItems: [StockItem!]!
+    stockItems: [StockItem!]!
   }
 
   type Query {
@@ -63,12 +63,11 @@ const mocks = {
     quantity: 12
   }),
   Price: () => ({
-    amount: 1230,
+    amount: 123,
     currency: "EUR"
   }),
   Image: () => ({
-    source:
-      "https://www.11teamsports.com/at-de/Data/Images/Big/nike-air-vapormax-flyknit-3-weiss-f102-aj6900.jpg"
+    source: "http://placekitten.com/g/200/300"
   })
 };
 
