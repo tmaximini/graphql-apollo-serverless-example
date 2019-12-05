@@ -82,6 +82,8 @@ const getArticleById = async id => {
   return getByParams(params);
 };
 
+// Slug is a GSI (global secondary index) on dynamoDB, so we can not just use ".get()"
+// instead we have to use this ugly Condition Syntax
 const getArticleBySlug = async slug => {
   const params = {
     TableName: "Articles",
