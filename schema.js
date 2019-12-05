@@ -29,7 +29,8 @@ const typeDefs = gql`
   type Product @cacheControl(maxAge: 300) {
     id: ID!
     name: String
-    description: String
+    descriptionLong: String
+    descriptionShort: String
     imageUrl: String
     brand: String
     price: Float
