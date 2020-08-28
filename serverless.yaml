@@ -12,8 +12,31 @@ iamRoleStatements:
     - "dynamodb:GetItem"
     - "dynamodb:PutItem"
     - "dynamodb:Scan"
-    # - "dynamodb:DeleteItem"
-  Resource: "arn:aws:dynamodb:eu-central-1:099822205767:table/Articles"
+    - "dynamodb:DeleteItem"
+  Resource:
+    Fn::Join:
+      - ""
+      - - "arn:aws:dynamodb:::"
+        - Ref: ArticleTable
+resources: # CloudFormation template syntax from here on.
+  Resources:
+    ArticleTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Articles
+        AttributeDefinitions:
+          - AttributeName: ID
+            AttributeType: S
+          - AttributeName: Slug
+            AttributeType: S
+        KeySchema:
+          - AttributeName: ID
+            KeyType: HASH
+          - AttributeName: Slug
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 functions:
   graphql:
     # this is formatted as <FILENAME>.<HANDLER>
